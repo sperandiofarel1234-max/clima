@@ -1,7 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: #0d1117;
   min-height: 100vh;
   display: flex;
@@ -40,7 +40,6 @@ body {
   min-height: 560px;
 }
 
-/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -70,7 +69,6 @@ body {
   opacity: 0.8;
 }
 
-/* Temperatura principal */
 .main-temp {
   display: flex;
   align-items: flex-end;
@@ -104,14 +102,12 @@ body {
   line-height: 1;
 }
 
-/* Divisor */
 .divider {
   border: none;
   border-top: 1px solid rgba(255,255,255,0.12);
   margin-bottom: 1.25rem;
 }
 
-/* Grid de stats */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -148,7 +144,6 @@ body {
   font-weight: 500;
 }
 
-/* Nascer/pôr do sol */
 .sun-row {
   display: flex;
   gap: 1.5rem;
@@ -181,7 +176,6 @@ body {
   font-weight: 500;
 }
 
-/* Footer */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -208,7 +202,6 @@ button {
 
 button:hover { background: rgba(255,255,255,0.2); }
 
-/* Loading / Error */
 .loading-state, .error-state {
   display: flex;
   flex-direction: column;
@@ -221,7 +214,8 @@ button:hover { background: rgba(255,255,255,0.2); }
 }
 
 .spinner {
-  width: 32px; height: 32px;
+  width: 32px;
+  height: 32px;
   border: 2px solid rgba(255,255,255,0.2);
   border-top-color: #fff;
   border-radius: 50%;
