@@ -1,8 +1,5 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "env": {
-    "VITE_WEATHER_API_KEY": "@vite_weather_api_key"
-  }
+  "outputDirectory": "dist"
 }
