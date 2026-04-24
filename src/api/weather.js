@@ -13,4 +13,4 @@ export async function getWeatherPOA() {
     },
   })
   return response.data
-}
+} 
