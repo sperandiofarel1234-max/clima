@@ -1,0 +1,233 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: #0d1117;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.page {
+  width: 100%;
+  max-width: 420px;
+}
+
+.card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  min-height: 560px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 560px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+
+.city {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.date {
+  font-size: 13px;
+  opacity: 0.5;
+  margin-top: 3px;
+  text-transform: capitalize;
+}
+
+.badge {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Temperatura principal */
+.main-temp {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.temp {
+  font-size: 86px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -4px;
+}
+
+.temp sup {
+  font-size: 28px;
+  font-weight: 400;
+  vertical-align: super;
+  letter-spacing: 0;
+}
+
+.condition {
+  font-size: 18px;
+  opacity: 0.75;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+}
+
+.weather-icon {
+  font-size: 72px;
+  line-height: 1;
+}
+
+/* Divisor */
+.divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 1.25rem;
+}
+
+/* Grid de stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1.25rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat:nth-child(3),
+.stat:nth-child(6) { border-right: none; }
+
+.stat:nth-child(4),
+.stat:nth-child(5),
+.stat:nth-child(6) {
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-label {
+  font-size: 10px;
+  opacity: 0.45;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* Nascer/pôr do sol */
+.sun-row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.875rem 1rem;
+  background: rgba(255,255,255,0.07);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.sun-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sun-icon { font-size: 20px; }
+
+.sun-label {
+  display: block;
+  font-size: 10px;
+  opacity: 0.45;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.sun-time {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.footer-txt {
+  font-size: 12px;
+  opacity: 0.35;
+}
+
+button {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover { background: rgba(255,255,255,0.2); }
+
+/* Loading / Error */
+.loading-state, .error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1;
+  min-height: 500px;
+  opacity: 0.7;
+}
+
+.spinner {
+  width: 32px; height: 32px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-state { color: #fca5a5; }
