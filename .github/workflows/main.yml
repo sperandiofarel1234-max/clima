@@ -40,10 +40,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 👇 FORÇA instalar Vercel novo
+      - name: Instalar Vercel CLI atualizada
+        run: npm install -g vercel@latest
+
       - name: Deploy no Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod --confirm'
+        run: vercel --prod --confirm --token=${{ secrets.VERCEL_TOKEN }}
