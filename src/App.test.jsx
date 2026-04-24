@@ -13,17 +13,17 @@ vi.mock('./api/weather', () => ({
 }))
 
 describe('Weather POA', () => {
-  it('renderiza o título principal', async () => {
+  it('renderiza o título com Porto Alegre', async () => {
     render(<App />)
     await waitFor(() => {
       expect(screen.getByText(/Porto Alegre/i)).toBeInTheDocument()
     })
   })
 
-  it('exibe subtítulo com Rio Grande do Sul', async () => {
+  it('exibe o badge Ao vivo', async () => {
     render(<App />)
     await waitFor(() => {
-      expect(screen.getByText(/Rio Grande do Sul/i)).toBeInTheDocument()
+      expect(screen.getByText(/Ao vivo/i)).toBeInTheDocument()
     })
   })
 })
