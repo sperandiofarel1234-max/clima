@@ -29,22 +29,34 @@ function App() {
   const [error, setError] = useState(null)
   const [lastUpdate, setLastUpdate] = useState(null)
 
-  async function fetchWeather() {
-    setLoading(true)
-    setError(null)
-    try {
-      const data = await getWeatherPOA()
-      setWeather(data)
-      setLastUpdate(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }))
-    } catch (err) {
-      setError('Não foi possível carregar o clima.')
-      console.error(err)
-    } finally {
-      setLoading(false)
+  function fetchWeather() {
+    let cancelled = false
+
+    async function load() {
+      setLoading(true)
+      setError(null)
+      try {
+        const data = await getWeatherPOA()
+        if (!cancelled) {
+          setWeather(data)
+          setLastUpdate(new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }))
+        }
+      } catch (err) {
+        if (!cancelled) setError('Não foi possível carregar o clima.')
+        console.error(err)
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
     }
+
+    load()
+    return () => { cancelled = true }
   }
 
-  useEffect(() => { fetchWeather() }, [])
+  useEffect(() => {
+    const cancel = fetchWeather()
+    return cancel
+  }, [])
 
   return (
     <div className="page">
